@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'jacoco'
+    id 'org.sonarqube' version '4.4.1.3373'
 }
 
 repositories {
@@ -15,4 +16,13 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+sonar {
+    properties {
+        property "sonar.projectKey", "gradle-demo"
+        property "sonar.projectName", "gradle-demo"
+        // Link the JaCoCo report from Task 1
+        property "sonar.coverage.jacoco.xmlReportPaths", "build/reports/jacoco/test/jacocoTestReport.xml"
+    }
 }
