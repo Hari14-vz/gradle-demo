@@ -3,17 +3,18 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkout scm // Pulls from GitHub[span_2](end_span)[span_3](end_span)
+                checkout scm 
             }
         }
         stage('Build & Test') {
             steps {
-                sh './gradlew clean test' // Executes Gradle build[span_4](end_span)
+                sh 'chmod +x gradlew'
+                sh './gradlew clean test' 
             }
         }
         stage('Archive Artifact') {
             steps {
-                archiveArtifacts artifacts: 'build/libs/*.jar', fingerprint: true // Archives JAR[span_5](end_span)
+                archiveArtifacts artifacts: 'build/libs/*.jar', fingerprint: true
             }
         }
     }
