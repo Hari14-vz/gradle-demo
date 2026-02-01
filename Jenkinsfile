@@ -19,6 +19,7 @@ pipeline {
         }
         stage('SonarQube Analysis') {
             steps {
+                task
                 sh './gradlew sonar'
             }
         }
