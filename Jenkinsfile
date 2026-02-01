@@ -9,7 +9,7 @@ pipeline {
         stage('Build & Test') {
             steps {
                 sh 'chmod +x gradlew'
-                sh './gradlew clean test' 
+                sh './gradlew clean test assemble' 
             }
         }
         stage('Archive Artifact') {
